@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic-Tac-Toe</title>
+    <script src="./src/app.js" defer></script>
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <main class="game">
+      <figure id="game-select-logo" style="display: none">
+        <img class="logo" src="./public/logo.svg" alt="logo" />
+      </figure>
+      <!-- Game selection modal -->
+      <section id="game-select" style="display: none">
+        <div class="game-select-box">
+          <h3>pick player 1's mark</h3>
+          <div class="game-inner-box">
+            <button class="btn-mark selected" data-mark="X">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="100%"
+                height="45px"
+                viewBox="0 0 66 66"
+              >
+                <path
+                  d="M51.12 1.269c.511 0 1.023.195 1.414.586l9.611 9.611c.391.391.586.903.586 1.415s-.195 1.023-.586 1.414L44.441 32l17.704 17.705c.391.39.586.902.586 1.414 0 .512-.195 1.024-.586 1.415l-9.611 9.611c-.391.391-.903.586-1.415.586a1.994 1.994 0 0 1-1.414-.586L32 44.441 14.295 62.145c-.39.391-.902.586-1.414.586a1.994 1.994 0 0 1-1.415-.586l-9.611-9.611a1.994 1.994 0 0 1-.586-1.415c0-.512.195-1.023.586-1.414L19.559 32 1.855 14.295a1.994 1.994 0 0 1-.586-1.414c0-.512.195-1.024.586-1.415l9.611-9.611c.391-.391.903-.586 1.415-.586s1.023.195 1.414.586L32 19.559 49.705 1.855c.39-.391.902-.586 1.414-.586Z"
+                  stroke="#1F3641"
+                  stroke-width="2"
+                  fill="#1F3641"
+                />
+              </svg>
+            </button>
+            <button class="btn-mark" data-mark="O">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="100%"
+                height="45px"
+                viewBox="0 0 66 66"
+              >
+                <path
+                  d="M33 1c17.673 0 32 14.327 32 32 0 17.673-14.327 32-32 32C15.327 65 1 50.673 1 33 1 15.327 15.327 1 33 1Zm0 18.963c-7.2 0-13.037 5.837-13.037 13.037 0 7.2 5.837 13.037 13.037 13.037 7.2 0 13.037-5.837 13.037-13.037 0-7.2-5.837-13.037-13.037-13.037Z"
+                  stroke="#1F3641"
+                  stroke-width="2"
+                  fill="#1F3641"
+                />
+              </svg>
+            </button>
+          </div>
+          <h3>Remember: x goes first</h3>
+        </div>
+        <div class="btn-container">
+          <button class="btn btn-yellow" data-select="cpu">
+            new game (vs cpu)
+          </button>
+          <button class="btn btn-light-blue" data-select="player2">
+            new game (vs player)
+          </button>
+        </div>
+      </section>
+      <!-- game board -->
+      <section id="game-screen" class="game-screen" style="display: none">
+        <header class="game-screen-header">
+          <figure>
+            <img  src="./public/logo.svg" alt="logo" />
+          </figure>
+          <p class="game-turn">
+            <span id="game-turn" class="game-turn-mark">X</span> <span>turn</span>
+          </p>
+          <button id="game-restart" class="game-restart">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20">
+              <path
+                d="M19.524 0h-1.88a.476.476 0 0 0-.476.499l.159 3.284A9.81 9.81 0 0 0 9.835.317C4.415.317-.004 4.743 0 10.167.004 15.597 4.406 20 9.835 20a9.796 9.796 0 0 0 6.59-2.536.476.476 0 0 0 .019-.692l-1.348-1.349a.476.476 0 0 0-.65-.022 6.976 6.976 0 0 1-9.85-.63 6.987 6.987 0 0 1 .63-9.857 6.976 6.976 0 0 1 10.403 1.348l-4.027-.193a.476.476 0 0 0-.498.476v1.881c0 .263.213.476.476.476h7.944A.476.476 0 0 0 20 8.426V.476A.476.476 0 0 0 19.524 0Z"
+                fill="#1F3641"
+              />
+            </svg>
+          </button>
+        </header>
+        <div id="game-board" class="game-board"></div>
+        <div class="game-screen-footer">
+          <div class="footer-btn">
+            <p><span id="p1-marker">X</span><span id="p1-name">(You)</span></p>
+            <p id="p1-score">0</p>
+          </div>
+          <div class="footer-btn">
+            <p>ties</p>
+            <p id="ties-score">0</p>
+          </div>
+          <div class="footer-btn">
+            <p><span id="p2-marker">O</span><span id="p2-name">(Cpu)</span></p>
+            <p id="p2-score">0</p>
+          </div>
+        </div>
+      </section>
+      <!-- result modal  -->
+      <section class="result-section">
+        <div id="result" class="result">
+          <h2 id="result-info"></h2>
+          <p id="result-win">
+            <span id="result-mark"></span>
+            <span id="result"></span>
+          </p>
+          <p id="result-draw">
+            tie game
+          </p>
+          <div class="result-btn-container">
+            <button>Quit</button>
+            <button>Next round</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
