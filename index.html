@@ -13,7 +13,7 @@
         <img class="logo" src="./public/logo.svg" alt="logo" />
       </figure>
       <!-- Game selection modal -->
-      <section id="game-select" >
+      <section id="game-select">
         <div class="game-select-box">
           <h3>pick player 1's mark</h3>
           <div class="game-inner-box">
@@ -54,7 +54,10 @@
           <button class="btn btn-yellow btn-lg btn-select" data-select="cpu">
             new game (vs cpu)
           </button>
-          <button class="btn btn-light-blue btn-lg btn-select" data-select="player2">
+          <button
+            class="btn btn-light-blue btn-lg btn-select"
+            data-select="player2"
+          >
             new game (vs player)
           </button>
         </div>
@@ -63,10 +66,11 @@
       <section id="game-screen" class="game-screen" style="display: none">
         <header class="game-screen-header">
           <figure>
-            <img  src="./public/logo.svg" alt="logo" />
+            <img src="./public/logo.svg" alt="logo" />
           </figure>
           <p class="game-turn">
-            <span id="game-turn" class="game-turn-mark">X</span> <span>turn</span>
+            <span id="game-turn" class="game-turn-mark">X</span>
+            <span>turn</span>
           </p>
           <button id="game-restart" class="game-restart">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20">
@@ -88,19 +92,25 @@
             <p id="ties-score">0</p>
           </div>
           <div class="footer-btn">
-            <p><span ></span><span id="p2-name"></span></p>
+            <p><span></span><span id="p2-name"></span></p>
             <p id="p2-score">0</p>
           </div>
         </div>
       </section>
       <!-- result modal  -->
-      <section class="result-section"  id="result-modal" style="display:none;">
+      <section class="result-section" id="result-modal" style="display: none">
         <div id="result" class="result">
-          <div id="result-message">
-          </div>
+          <div id="result-message"></div>
           <div class="result-btn-container">
-            <button data-result="Quit" class="btn btn-grey btn-sm btn-result">Quit</button>
-            <button data-result="Next round" class="btn btn-yellow btn-sm btn-result">Next round</button>
+            <button data-result="Quit" class="btn btn-grey btn-sm btn-result">
+              Quit
+            </button>
+            <button
+              data-result="Next round"
+              class="btn btn-yellow btn-sm btn-result"
+            >
+              Next round
+            </button>
           </div>
         </div>
       </section>
