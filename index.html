@@ -9,15 +9,15 @@
   </head>
   <body>
     <main class="game">
-      <figure id="game-select-logo" style="display: none">
+      <figure id="game-select-logo">
         <img class="logo" src="./public/logo.svg" alt="logo" />
       </figure>
       <!-- Game selection modal -->
-      <section id="game-select" style="display: none">
+      <section id="game-select" >
         <div class="game-select-box">
           <h3>pick player 1's mark</h3>
           <div class="game-inner-box">
-            <button class="btn-mark selected" data-mark="X">
+            <button class="btn-mark selected" data-selected-mark="X">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="100%"
@@ -32,7 +32,7 @@
                 />
               </svg>
             </button>
-            <button class="btn-mark" data-mark="O">
+            <button class="btn-mark" data-selected-mark="O">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="100%"
@@ -51,10 +51,10 @@
           <h3>Remember: x goes first</h3>
         </div>
         <div class="btn-container">
-          <button class="btn btn-yellow" data-select="cpu">
+          <button class="btn btn-yellow btn-lg btn-select" data-select="cpu">
             new game (vs cpu)
           </button>
-          <button class="btn btn-light-blue" data-select="player2">
+          <button class="btn btn-light-blue btn-lg btn-select" data-select="player2">
             new game (vs player)
           </button>
         </div>
@@ -80,7 +80,7 @@
         <div id="game-board" class="game-board"></div>
         <div class="game-screen-footer">
           <div class="footer-btn">
-            <p><span id="p1-marker">X</span><span id="p1-name">(You)</span></p>
+            <p><span id="p1-name"></span></p>
             <p id="p1-score">0</p>
           </div>
           <div class="footer-btn">
@@ -88,25 +88,19 @@
             <p id="ties-score">0</p>
           </div>
           <div class="footer-btn">
-            <p><span id="p2-marker">O</span><span id="p2-name">(Cpu)</span></p>
+            <p><span ></span><span id="p2-name"></span></p>
             <p id="p2-score">0</p>
           </div>
         </div>
       </section>
       <!-- result modal  -->
-      <section class="result-section">
+      <section class="result-section"  id="result-modal" style="display:none;">
         <div id="result" class="result">
-          <h2 id="result-info"></h2>
-          <p id="result-win">
-            <span id="result-mark"></span>
-            <span id="result"></span>
-          </p>
-          <p id="result-draw">
-            tie game
-          </p>
+          <div id="result-message">
+          </div>
           <div class="result-btn-container">
-            <button>Quit</button>
-            <button>Next round</button>
+            <button data-result="Quit" class="btn btn-grey btn-sm btn-result">Quit</button>
+            <button data-result="Next round" class="btn btn-yellow btn-sm btn-result">Next round</button>
           </div>
         </div>
       </section>
