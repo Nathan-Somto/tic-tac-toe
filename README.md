@@ -20,7 +20,7 @@
 
 ## Demo
 
-You can see a live demo of the Tic Tac Toe game [here](link-to-demo).
+You can see a live demo of the Tic Tac Toe game [here](https://nathan-somto.github.io/tic-tac-toe/).
 
 ## Usage
 
@@ -40,7 +40,7 @@ $ git clone https:// https://github.com/nathan-somto/tic-tac-toe.git
 
 ## Screenshots
 
-No screenshots for this one just [play the game]()
+No screenshots for this one just [play the game](https://nathan-somto.github.io/tic-tac-toe/)
 
 ## Contributors
 - [Nathan Somto](https://github.com/nathan-somto)
