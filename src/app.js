@@ -15,7 +15,7 @@ const p1Name = document.querySelector("#p1-name");
 const p2Name = document.querySelector("#p2-name");
 const btnResult = document.querySelectorAll(".btn-result");
 // have an initial game state, load from local storage if it exists
-const gameState = {
+let gameState = {
   playerTurn: "X",
   board: [0, 1, 2, 3, 4, 5, 6, 7, 8],
   cpu: true,
@@ -33,6 +33,7 @@ const gameState = {
   },
   gameEnded: false,
 };
+const initialGameState = JSON.parse(JSON.stringify(gameState));
 const resultStyles = {
   X: {
     class: "result-X",
@@ -103,10 +104,11 @@ function generateGameBoard() {
 }
 
 // handle cell click
+let cpuTurn = false;
 function handleCellClick(index) {
   const gameCells = document.querySelectorAll(".game-cell");
 
-  if (gameCells[index].dataset.mark !== "") {
+  if (gameCells[index].dataset.mark !== "" || cpuTurn) {
     return;
   }
   // if it is a two player game allow clicks or playerturn equals p1 (for cpu)
@@ -118,8 +120,10 @@ function handleCellClick(index) {
     }
   }
   if (gameState.cpu) {
+    cpuTurn = true;
     setTimeout(() => {
       handleBotClick();
+      cpuTurn =false;
     }, 1500);
   }
 }
@@ -271,5 +275,7 @@ btnResult.forEach((btn, index) =>
   btn.addEventListener("click", () => handleResultOption(index))
 );
 function clearGame() {
-  // set the game state to its initial state
+  gameState = JSON.parse(JSON.stringify(initialGameState));
+  gameBoard.innerHTML = '';
+
 }
